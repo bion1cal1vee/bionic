@@ -66,7 +66,7 @@ if (typeof firebase !== 'undefined') {
   firebase.initializeApp({
     apiKey: "AIzaSyCcst4P7mGpoQ7imUE0ObiHtN8VAb7fBSQ",
     authDomain: "bionic-site.firebaseapp.com",
-    databaseURL: "https://bionic-site-default-rtdb.firebaseio.com",
+    databaseURL: "https://bionic-site-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "bionic-site",
     storageBucket: "bionic-site.firebasestorage.app",
     messagingSenderId: "499266973339",
@@ -95,10 +95,10 @@ if (typeof firebase !== 'undefined') {
 
     snap.forEach((child) => {
       const ts = child.val();
-      if (typeof ts === 'number' && now - ts > 30000) {
-        stale.push(child.ref);
-      } else {
+      if (typeof ts === 'number' && now - ts <= 30000) {
         count++;
+      } else {
+        stale.push(child.ref);
       }
     });
 
