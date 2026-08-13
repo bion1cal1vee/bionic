@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=13">
+  <link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
   <header class="header">
@@ -95,6 +95,34 @@
     <div class="container">
       <h2 class="section__title" data-i18n="about_title">Обо мне</h2>
       <p class="section__text" data-i18n="about_text">Я начинающий web-разработчик и дизайнер bionic. Работаю с Python, HTML, C/C++ и другими языками.</p>
+    </div>
+  </section>
+
+  <section id="how" class="section reveal">
+    <div class="container">
+      <h2 class="section__title" data-i18n="how_title">Как я работаю</h2>
+      <div class="steps">
+        <article class="step">
+          <span class="step__num">01</span>
+          <h3 class="step__title" data-i18n="step1_title">Обсуждение</h3>
+          <p class="step__text" data-i18n="step1_text">Вы рассказываете, что нужно. Обсуждаем задачу, сроки и бюджет.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">02</span>
+          <h3 class="step__title" data-i18n="step2_title">Макет</h3>
+          <p class="step__text" data-i18n="step2_text">Показываю структуру и дизайн, согласовываем детали.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">03</span>
+          <h3 class="step__title" data-i18n="step3_title">Разработка</h3>
+          <p class="step__text" data-i18n="step3_text">Собираю сайт или бота, делаю адаптивную вёрстку.</p>
+        </article>
+        <article class="step">
+          <span class="step__num">04</span>
+          <h3 class="step__title" data-i18n="step4_title">Запуск и поддержка</h3>
+          <p class="step__text" data-i18n="step4_text">Публикую проект и остаюсь на связи для правок.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -181,6 +209,44 @@
     </div>
   </section>
 
+  <section id="reviews" class="section section--alt reveal">
+    <div class="container">
+      <h2 class="section__title" data-i18n="reviews_title">Отзывы</h2>
+      <div class="reviews">
+        <article class="review">
+          <p class="review__text" data-i18n="rev1_text">«Сделал сайт-визитку быстро и аккуратно. Всё работает, клиенты находят нас через интернет.»</p>
+          <div class="review__author">
+            <span class="review__avatar">А</span>
+            <div>
+              <div class="review__name" data-i18n="rev1_name">Анна</div>
+              <div class="review__role" data-i18n="rev1_role">Студия маникюра</div>
+            </div>
+          </div>
+        </article>
+        <article class="review">
+          <p class="review__text" data-i18n="rev2_text">«Заказал Telegram-бота для записи клиентов. Работает отлично, клиенты сами выбирают время.»</p>
+          <div class="review__author">
+            <span class="review__avatar">Д</span>
+            <div>
+              <div class="review__name" data-i18n="rev2_name">Дмитрий</div>
+              <div class="review__role" data-i18n="rev2_role">Барбершоп</div>
+            </div>
+          </div>
+        </article>
+        <article class="review">
+          <p class="review__text" data-i18n="rev3_text">«Всё объяснил простыми словами, сделал в срок и потом ещё обучил пользоваться.»</p>
+          <div class="review__author">
+            <span class="review__avatar">Е</span>
+            <div>
+              <div class="review__name" data-i18n="rev3_name">Елена</div>
+              <div class="review__role" data-i18n="rev3_role">Репетитор</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="contacts" class="section reveal">
     <div class="container">
       <h2 class="section__title" data-i18n="contacts_title">Связаться со мной</h2>
@@ -213,6 +279,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
-  <script src="js/script.js?v=14"></script>
+  <script src="js/script.js?v=15"></script>
 </body>
 </html>
