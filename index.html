@@ -20,12 +20,15 @@
   <meta property="og:description" content="Создаю современные сайты и Telegram-ботов. Портфолио и контакты.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bion1cal1vee.github.io/bionic/">
+  <meta property="og:image" content="https://bion1cal1vee.github.io/bionic/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="bionic">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=14">
+  <link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
   <header class="header">
@@ -247,6 +250,59 @@
     </div>
   </section>
 
+  <section id="faq" class="section reveal">
+    <div class="container">
+      <h2 class="section__title" data-i18n="faq_title">Частые вопросы</h2>
+      <div class="faq">
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span data-i18n="faq_1q">Сколько стоит сайт?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a">
+            <p data-i18n="faq_1a">От 499 ₽. Точную цену назову после обсуждения задачи — она зависит от количества страниц и функций.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span data-i18n="faq_2q">Какие сроки?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a">
+            <p data-i18n="faq_2a">Сайт-визитка — 1–3 дня, Telegram-бот — 2–5 дней. Срочные задачи делаю за 24 часа.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span data-i18n="faq_3q">Что нужно от меня?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a">
+            <p data-i18n="faq_3a">Текст, фото и логотип, если есть. Если материалов нет — помогу составить текст и подобрать оформление.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span data-i18n="faq_4q">Как проходит оплата?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a">
+            <p data-i18n="faq_4a">Предоплата 30% для старта, остальное — после готовности. Принимаю переводом на карту.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" type="button" aria-expanded="false">
+            <span data-i18n="faq_5q">Что после запуска?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__a">
+            <p data-i18n="faq_5a">Бесплатные правки в течение 7 дней. Остаюсь на связи для дальнейших доработок.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contacts" class="section reveal">
     <div class="container">
       <h2 class="section__title" data-i18n="contacts_title">Связаться со мной</h2>
@@ -274,11 +330,17 @@
     </div>
   </footer>
 
+  <a href="https://t.me/bion1calive" class="telegram-btn" target="_blank" rel="noopener" aria-label="Написать в Telegram" title="Написать в Telegram">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"></path>
+    </svg>
+  </a>
+
   <button class="to-top" id="to-top" aria-label="Наверх">↑</button>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
-  <script src="js/script.js?v=15"></script>
+  <script src="js/script.js?v=16"></script>
 </body>
 </html>

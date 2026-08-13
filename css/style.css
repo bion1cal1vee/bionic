@@ -68,6 +68,11 @@
   box-shadow: 0 20px 50px rgba(27, 34, 64, 0.14);
 }
 
+:root[data-theme="light"] .faq__item {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 30px rgba(27, 34, 64, 0.06);
+}
+
 :root[data-theme="light"] .section--alt {
   background: linear-gradient(180deg, var(--bg-alt), #e3e8f7);
 }
@@ -651,6 +656,148 @@ body {
   font-size: 0.85rem;
 }
 
+.faq {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq__item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.faq__item:hover {
+  border-color: rgba(109, 141, 255, 0.35);
+}
+
+.faq__item.open {
+  border-color: rgba(109, 141, 255, 0.5);
+}
+
+.faq__q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq__icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  content: '';
+  position: absolute;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.faq__icon::before {
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.faq__icon::after {
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+}
+
+.faq__item.open .faq__icon {
+  transform: rotate(135deg);
+}
+
+.faq__a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.faq__a p {
+  padding: 0 22px 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.telegram-btn {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 99;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2aabee, #229ed9);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(34, 158, 217, 0.45);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.telegram-btn svg {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.telegram-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(42, 171, 238, 0.5);
+  animation: tg-pulse 2s ease-out infinite;
+}
+
+@keyframes tg-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+.telegram-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(34, 158, 217, 0.6);
+}
+
 .contacts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1019,5 +1166,21 @@ body,
     right: 16px;
     width: 44px;
     height: 44px;
+  }
+
+  .telegram-btn {
+    left: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .faq__q {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .faq__a p {
+    padding: 0 18px 16px;
   }
 }

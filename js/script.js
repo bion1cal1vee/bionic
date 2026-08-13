@@ -80,6 +80,17 @@ const translations = {
     rev3_text: '«Всё объяснил простыми словами, сделал в срок и потом ещё обучил пользоваться.»',
     rev3_name: 'Елена',
     rev3_role: 'Репетитор',
+    faq_title: 'Частые вопросы',
+    faq_1q: 'Сколько стоит сайт?',
+    faq_1a: 'От 499 ₽. Точную цену назову после обсуждения задачи — она зависит от количества страниц и функций.',
+    faq_2q: 'Какие сроки?',
+    faq_2a: 'Сайт-визитка — 1–3 дня, Telegram-бот — 2–5 дней. Срочные задачи делаю за 24 часа.',
+    faq_3q: 'Что нужно от меня?',
+    faq_3a: 'Текст, фото и логотип, если есть. Если материалов нет — помогу составить текст и подобрать оформление.',
+    faq_4q: 'Как проходит оплата?',
+    faq_4a: 'Предоплата 30% для старта, остальное — после готовности. Принимаю переводом на карту.',
+    faq_5q: 'Что после запуска?',
+    faq_5a: 'Бесплатные правки в течение 7 дней. Остаюсь на связи для дальнейших доработок.',
     title: 'bionic — портфолио'
   },
   en: {
@@ -150,6 +161,17 @@ const translations = {
     rev3_text: '“He explained everything in simple words, delivered on time and then taught me how to use it.”',
     rev3_name: 'Elena',
     rev3_role: 'Tutor',
+    faq_title: 'FAQ',
+    faq_1q: 'How much does a website cost?',
+    faq_1a: 'From 499 ₽. I will give an exact price after we discuss the task — it depends on the number of pages and features.',
+    faq_2q: 'What are the deadlines?',
+    faq_2a: 'Business website: 1–3 days, Telegram bot: 2–5 days. Urgent tasks are done within 24 hours.',
+    faq_3q: 'What do you need from me?',
+    faq_3a: 'Text, photos and a logo if you have them. If you do not have materials, I will help you write the text and pick the design.',
+    faq_4q: 'How does payment work?',
+    faq_4a: '30% upfront to start, the rest after the project is done. Bank transfer is accepted.',
+    faq_5q: 'What happens after launch?',
+    faq_5a: 'Free edits for 7 days. I stay in touch for further improvements.',
     title: 'bionic — portfolio'
   }
 };
@@ -499,5 +521,28 @@ cards.forEach((card) => {
   });
   card.addEventListener('mouseleave', () => {
     card.style.transform = '';
+  });
+});
+
+const faqItems = document.querySelectorAll('.faq__item');
+
+faqItems.forEach((item) => {
+  const btn = item.querySelector('.faq__q');
+  const panel = item.querySelector('.faq__a');
+
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    faqItems.forEach((other) => {
+      other.classList.remove('open');
+      other.querySelector('.faq__a').style.maxHeight = null;
+      other.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+    }
   });
 });
