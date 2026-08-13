@@ -84,6 +84,18 @@ if (typeof firebase !== 'undefined') {
 
   let realOnline = null;
 
+  async function initOnlineCounter() {
+    try {
+      await firebase.auth().signInAnonymously();
+    } catch (e) {}
+
+    db.ref('online').on('value', cleanup);
+    heartbeat();
+    setInterval(heartbeat, 10000);
+  }
+
+  initOnlineCounter();
+
   function heartbeat() {
     presenceRef.set(firebase.database.ServerValue.TIMESTAMP);
   }
@@ -107,10 +119,6 @@ if (typeof firebase !== 'undefined') {
     realOnline = count;
     onlineEl.textContent = count;
   }
-
-  db.ref('online').on('value', cleanup);
-  heartbeat();
-  setInterval(heartbeat, 10000);
 
   let online = Math.floor(Math.random() * 8) + 3;
 
