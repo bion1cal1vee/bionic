@@ -12,7 +12,16 @@
 <body>
   <header class="header">
     <div class="container header__inner">
-      <a href="#" class="logo">bionic</a>
+      <div class="header__left">
+        <a href="#" class="logo">bionic</a>
+        <div class="online" title="Статистика сайта">
+          <span class="online__dot"></span>
+          <span class="online__text">
+            <span id="visits-count">—</span> визитов ·
+            <span id="online-count">—</span> онлайн
+          </span>
+        </div>
+      </div>
       <nav class="nav">
         <a href="#about">Обо мне</a>
         <a href="#works">Работы</a>
@@ -25,9 +34,10 @@
     <div class="container hero__inner">
       <span class="hero__badge">✦ открыт к проектам</span>
       <h1 class="hero__title">привет, я <span>bionic</span></h1>
-      <p class="hero__subtitle">Создаю современные сайты и Telegram-ботов.</p>
+      <p class="hero__subtitle"><span id="typed-text"></span><span class="cursor">|</span></p>
       <a href="#contacts" class="btn">Связаться со мной</a>
     </div>
+    <a href="#about" class="scroll-hint" aria-label="Прокрутить вниз">↓</a>
   </section>
 
   <section id="about" class="section reveal">
@@ -37,15 +47,25 @@
     </div>
   </section>
 
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+      <path d="M0,35 C240,70 480,0 720,18 C960,36 1200,70 1440,30 L1440,70 L0,70 Z" fill="#0f1526"></path>
+    </svg>
+  </div>
+
   <section id="works" class="section section--alt reveal">
     <div class="container">
       <h2 class="section__title">Мои работы</h2>
       <div class="grid">
         <article class="card">
           <div class="card__inner">
-            <div class="card__image" style="background: linear-gradient(135deg, #4f8cff, #7c5cff);"></div>
+            <div class="card__image card__image--icon" style="background: linear-gradient(135deg, #229ed9, #0077b6);">
+              <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"></path>
+              </svg>
+            </div>
             <h3 class="card__title">Проект 1</h3>
-            <p class="card__text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
+            <p class="card__text">Мои Telegram-боты.</p>
             <a href="#" class="card__link">Смотреть →</a>
           </div>
         </article>
@@ -95,6 +115,8 @@
     </div>
   </footer>
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
