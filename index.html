@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=12">
+  <link rel="stylesheet" href="css/style.css?v=13">
 </head>
 <body>
   <header class="header">
@@ -43,6 +43,7 @@
       <nav class="nav">
         <a href="#about" data-i18n="nav_about">Обо мне</a>
         <a href="#works" data-i18n="nav_works">Работы</a>
+        <a href="#services" data-i18n="nav_services">Услуги</a>
         <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
         <div class="lang-switch" role="group" aria-label="Language">
           <button class="lang-option" type="button" data-lang="ru">RU</button>
@@ -135,6 +136,51 @@
     </div>
   </section>
 
+  <section id="services" class="section reveal">
+    <div class="container">
+      <h2 class="section__title" data-i18n="services_title">Услуги и цены</h2>
+      <p class="section__sub" data-i18n="services_sub">Прозрачные цены без скрытых платежей. Напишите — обсудим ваш проект.</p>
+      <div class="pricing">
+        <article class="price-card">
+          <h3 class="price-card__title" data-i18n="price1_title">Сайт-визитка</h3>
+          <div class="price-card__price" data-i18n="price1_price">от 1 000 ₽</div>
+          <ul class="price-card__list">
+            <li data-i18n="price1_1">1–5 страниц</li>
+            <li data-i18n="price1_2">Адаптивность: телефон и ПК</li>
+            <li data-i18n="price1_3">Форма связи в Telegram</li>
+            <li data-i18n="price1_4">Бесплатные правки 7 дней</li>
+          </ul>
+          <a href="#contacts" class="btn btn--ghost" data-i18n="price_btn">Заказать</a>
+        </article>
+
+        <article class="price-card price-card--popular">
+          <span class="price-card__badge" data-i18n="price_badge">Популярно</span>
+          <h3 class="price-card__title" data-i18n="price2_title">Telegram-бот</h3>
+          <div class="price-card__price" data-i18n="price2_price">от 1 500 ₽</div>
+          <ul class="price-card__list">
+            <li data-i18n="price2_1">Запись, заказы, консультации</li>
+            <li data-i18n="price2_2">Кнопки и меню</li>
+            <li data-i18n="price2_3">Поддержка геопозиции</li>
+            <li data-i18n="price2_4">Деплой на сервер</li>
+          </ul>
+          <a href="#contacts" class="btn" data-i18n="price_btn">Заказать</a>
+        </article>
+
+        <article class="price-card">
+          <h3 class="price-card__title" data-i18n="price3_title">Доработка и поддержка</h3>
+          <div class="price-card__price" data-i18n="price3_price">от 500 ₽</div>
+          <ul class="price-card__list">
+            <li data-i18n="price3_1">Правки и новые страницы</li>
+            <li data-i18n="price3_2">Новые функции на сайте</li>
+            <li data-i18n="price3_3">Техподдержка после запуска</li>
+            <li data-i18n="price3_4">Быстрый срок</li>
+          </ul>
+          <a href="#contacts" class="btn btn--ghost" data-i18n="price_btn">Заказать</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="contacts" class="section reveal">
     <div class="container">
       <h2 class="section__title" data-i18n="contacts_title">Связаться со мной</h2>
@@ -167,6 +213,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
-  <script src="js/script.js?v=13"></script>
+  <script src="js/script.js?v=14"></script>
 </body>
 </html>

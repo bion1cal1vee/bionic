@@ -48,6 +48,15 @@
   box-shadow: 0 20px 50px rgba(27, 34, 64, 0.14);
 }
 
+:root[data-theme="light"] .price-card {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 10px 30px rgba(27, 34, 64, 0.06);
+}
+
+:root[data-theme="light"] .price-card:hover {
+  box-shadow: 0 20px 50px rgba(27, 34, 64, 0.14);
+}
+
 :root[data-theme="light"] .section--alt {
   background: linear-gradient(180deg, var(--bg-alt), #e3e8f7);
 }
@@ -421,6 +430,107 @@ body {
 
 .card__link:hover {
   color: var(--accent-2);
+}
+
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.price-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s, box-shadow 0.4s;
+}
+
+.price-card:hover {
+  transform: translateY(-6px);
+  border-color: transparent;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.price-card--popular {
+  background: linear-gradient(180deg, rgba(109, 141, 255, 0.14), var(--bg));
+  border-color: rgba(109, 141, 255, 0.45);
+}
+
+.price-card--popular:hover {
+  border-color: transparent;
+}
+
+.price-card__badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, var(--accent-3), var(--accent));
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.price-card__title {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  padding-right: 76px;
+}
+
+.price-card__price {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.price-card__list {
+  list-style: none;
+  margin: 0 0 26px;
+  flex: 1;
+}
+
+.price-card__list li {
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding: 7px 0 7px 26px;
+  position: relative;
+}
+
+.price-card__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #34d399;
+  font-weight: 700;
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(109, 141, 255, 0.4);
+  color: var(--accent);
+  box-shadow: none;
+  text-align: center;
+}
+
+.btn--ghost:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(109, 141, 255, 0.4);
 }
 
 .contacts {
