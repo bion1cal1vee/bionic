@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bionic — портфолио</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">bionic</a>
+      <nav class="nav">
+        <a href="#about">Обо мне</a>
+        <a href="#works">Работы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero__inner">
+      <span class="hero__badge">✦ открыт к проектам</span>
+      <h1 class="hero__title">привет, я <span>bionic</span></h1>
+      <p class="hero__subtitle">Создаю современные сайты и Telegram-ботов.</p>
+      <a href="#contacts" class="btn">Связаться со мной</a>
+    </div>
+  </section>
+
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">Обо мне</h2>
+      <p class="section__text">Я начинающий web-разработчик и дизайнер bionic. Работаю с Python, HTML, C/C++ и другими языками.</p>
+    </div>
+  </section>
+
+  <section id="works" class="section section--alt reveal">
+    <div class="container">
+      <h2 class="section__title">Мои работы</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card__inner">
+            <div class="card__image" style="background: linear-gradient(135deg, #4f8cff, #7c5cff);"></div>
+            <h3 class="card__title">Проект 1</h3>
+            <p class="card__text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
+            <a href="#" class="card__link">Смотреть →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__inner">
+            <div class="card__image" style="background: linear-gradient(135deg, #7c5cff, #ff5c8a);"></div>
+            <h3 class="card__title">Проект 2</h3>
+            <p class="card__text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
+            <a href="#" class="card__link">Смотреть →</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__inner">
+            <div class="card__image" style="background: linear-gradient(135deg, #ff5c8a, #ff9f5c);"></div>
+            <h3 class="card__title">Проект 3</h3>
+            <p class="card__text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
+            <a href="#" class="card__link">Смотреть →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="section reveal">
+    <div class="container">
+      <h2 class="section__title">Связаться со мной</h2>
+      <p class="section__sub">Напишите мне — отвечаю быстро.</p>
+      <div class="contacts">
+        <div class="contacts__info">
+          <p><strong>Email:</strong> <a href="mailto:bionicbud380@gmail.com">bionicbud380@gmail.com</a></p>
+          <p><strong>Telegram:</strong> <a href="https://t.me/b1onical1vee" target="_blank">@b1onical1vee</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/bion1cal1vee" target="_blank">github.com/bion1cal1vee</a></p>
+        </div>
+        <form class="form" onsubmit="event.preventDefault(); this.reset(); alert('Спасибо! Я свяжусь с вами.');">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="email" name="email" placeholder="Ваш email" required>
+          <textarea name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+          <button type="submit" class="btn">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 bionic. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
