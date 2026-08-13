@@ -627,6 +627,10 @@ body {
     min-height: auto;
   }
 
+  .scroll-hint {
+    bottom: 12px;
+  }
+
   .section {
     padding: 64px 0;
   }
