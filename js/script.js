@@ -36,6 +36,8 @@ const translations = {
     form_email: 'Ваш email',
     form_message: 'Ваше сообщение',
     form_submit: 'Отправить',
+    form_success: '✓ Спасибо! Я свяжусь с вами.',
+    form_error: 'Ошибка отправки. Напишите мне в Telegram.',
     copied: '✓ скопировано',
     footer_rights: 'Все права защищены.',
     title: 'bionic — портфолио'
@@ -64,6 +66,8 @@ const translations = {
     form_email: 'Your email',
     form_message: 'Your message',
     form_submit: 'Send',
+    form_success: '✓ Thanks! I will contact you.',
+    form_error: 'Send failed. Write to me on Telegram.',
     copied: '✓ copied',
     footer_rights: 'All rights reserved.',
     title: 'bionic — portfolio'
@@ -204,6 +208,38 @@ copyMail.addEventListener('click', (e) => {
     copyTip.classList.add('show');
     setTimeout(() => copyTip.classList.remove('show'), 2000);
   });
+});
+
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const payload = {
+    name: contactForm.name.value.trim(),
+    email: contactForm.email.value.trim(),
+    message: contactForm.message.value.trim()
+  };
+
+  formStatus.textContent = '';
+  formStatus.classList.remove('error');
+
+  fetch('https://bionic1.pythonanywhere.com/send', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      formStatus.textContent = translations[currentLang][data.ok ? 'form_success' : 'form_error'];
+      formStatus.classList.toggle('error', !data.ok);
+      if (data.ok) contactForm.reset();
+    })
+    .catch(() => {
+      formStatus.textContent = translations[currentLang].form_error;
+      formStatus.classList.add('error');
+    });
 });
 
 const onlineEls = document.querySelectorAll('.online-count');

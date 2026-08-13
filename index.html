@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
   <header class="header">
@@ -129,11 +129,12 @@
           <p><strong>Email:</strong> <a href="#" class="copy-mail" id="copy-mail" title="Нажмите, чтобы скопировать">b1on1calivee@gmail.com</a> <span class="copy-tip" id="copy-tip"></span></p>
           <p><strong>GitHub:</strong> <a href="https://github.com/bion1cal1vee" target="_blank">github.com/bion1cal1vee</a></p>
         </div>
-        <form class="form" onsubmit="event.preventDefault(); this.reset(); alert('Спасибо! Я свяжусь с вами.');">
+        <form class="form" id="contact-form">
           <input type="text" name="name" placeholder="Ваше имя" data-i18n-ph="form_name" required>
           <input type="email" name="email" placeholder="Ваш email" data-i18n-ph="form_email" required>
           <textarea name="message" rows="5" placeholder="Ваше сообщение" data-i18n-ph="form_message" required></textarea>
           <button type="submit" class="btn" data-i18n="form_submit">Отправить</button>
+          <p class="form-status" id="form-status" role="status"></p>
         </form>
       </div>
     </div>
@@ -150,6 +151,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
-  <script src="js/script.js?v=9"></script>
+  <script src="js/script.js?v=10"></script></script>
 </body>
 </html>

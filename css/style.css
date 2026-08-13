@@ -192,9 +192,13 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.hero__title .hero__role {
-  background: none;
-  -webkit-text-fill-color: var(--text);
+.hero__tagline {
+  color: var(--accent);
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: lowercase;
+  margin-bottom: 20px;
 }
 
 .hero__subtitle {
@@ -433,6 +437,18 @@ body {
 
 .copy-tip.show {
   opacity: 1;
+}
+
+.form-status {
+  color: #34d399;
+  font-size: 0.95rem;
+  min-height: 1.4em;
+  text-align: center;
+  transition: opacity 0.3s;
+}
+
+.form-status.error {
+  color: #ff6d9f;
 }
 
 .footer {
