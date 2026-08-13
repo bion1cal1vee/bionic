@@ -30,33 +30,34 @@
         <div class="online" title="Статистика сайта">
           <span class="online__dot"></span>
           <span class="online__text">
-            <span id="online-count">—</span> онлайн ·
+            <span id="online-count">—</span> <span data-i18n="online_word">онлайн</span> ·
             <span id="visits-count">—</span> <span id="visits-word">визитов</span>
           </span>
         </div>
       </div>
       <nav class="nav">
-        <a href="#about">Обо мне</a>
-        <a href="#works">Работы</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#about" data-i18n="nav_about">Обо мне</a>
+        <a href="#works" data-i18n="nav_works">Работы</a>
+        <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+        <button class="lang-btn" id="lang-btn" type="button">EN</button>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="container hero__inner">
-      <span class="hero__badge">✦ открыт к проектам</span>
-      <h1 class="hero__title">привет, я <span>bionic</span></h1>
+      <span class="hero__badge" data-i18n="hero_badge">✦ открыт к проектам</span>
+      <h1 class="hero__title"><span data-i18n="hero_greeting">привет, я</span> <span>bionic</span></h1>
       <p class="hero__subtitle"><span id="typed-text"></span><span class="cursor">|</span></p>
-      <a href="#contacts" class="btn">Связаться со мной</a>
+      <a href="#contacts" class="btn" data-i18n="hero_btn">Связаться со мной</a>
     </div>
     <a href="#about" class="scroll-hint" aria-label="Прокрутить вниз">↓</a>
   </section>
 
   <section id="about" class="section reveal">
     <div class="container">
-      <h2 class="section__title">Обо мне</h2>
-      <p class="section__text">Я начинающий web-разработчик и дизайнер bionic. Работаю с Python, HTML, C/C++ и другими языками.</p>
+      <h2 class="section__title" data-i18n="about_title">Обо мне</h2>
+      <p class="section__text" data-i18n="about_text">Я начинающий web-разработчик и дизайнер bionic. Работаю с Python, HTML, C/C++ и другими языками.</p>
     </div>
   </section>
 
@@ -68,7 +69,7 @@
 
   <section id="works" class="section section--alt reveal">
     <div class="container">
-      <h2 class="section__title">Мои работы</h2>
+      <h2 class="section__title" data-i18n="works_title">Мои работы</h2>
       <div class="grid">
         <article class="card">
           <div class="card__inner">
@@ -77,25 +78,25 @@
                 <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"></path>
               </svg>
             </div>
-            <h3 class="card__title">Проект 1</h3>
-            <p class="card__text">Мои Telegram-боты.</p>
-            <a href="#" class="card__link">Смотреть →</a>
+            <h3 class="card__title" data-i18n="card1_title">Проект 1</h3>
+            <p class="card__text" data-i18n="card1_text">Мои Telegram-боты.</p>
+            <a href="#" class="card__link" data-i18n="view">Смотреть →</a>
           </div>
         </article>
         <article class="card">
           <div class="card__inner">
             <div class="card__image" style="background: linear-gradient(135deg, #7c5cff, #ff5c8a);"></div>
-            <h3 class="card__title">Проект 2</h3>
-            <p class="card__text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
-            <a href="#" class="card__link">Смотреть →</a>
+            <h3 class="card__title" data-i18n="card2_title">Проект 2</h3>
+            <p class="card__text" data-i18n="card2_text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
+            <a href="#" class="card__link" data-i18n="view">Смотреть →</a>
           </div>
         </article>
         <article class="card">
           <div class="card__inner">
             <div class="card__image" style="background: linear-gradient(135deg, #ff5c8a, #ff9f5c);"></div>
-            <h3 class="card__title">Проект 3</h3>
-            <p class="card__text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
-            <a href="#" class="card__link">Смотреть →</a>
+            <h3 class="card__title" data-i18n="card3_title">Проект 3</h3>
+            <p class="card__text" data-i18n="card3_text">Краткое описание проекта. Ссылка на работу добавляется внизу.</p>
+            <a href="#" class="card__link" data-i18n="view">Смотреть →</a>
           </div>
         </article>
       </div>
@@ -104,8 +105,8 @@
 
   <section id="contacts" class="section reveal">
     <div class="container">
-      <h2 class="section__title">Связаться со мной</h2>
-      <p class="section__sub">Напишите мне — отвечаю быстро.</p>
+      <h2 class="section__title" data-i18n="contacts_title">Связаться со мной</h2>
+      <p class="section__sub" data-i18n="contacts_sub">Напишите мне — отвечаю быстро.</p>
       <div class="contacts">
         <div class="contacts__info">
           <p><strong>Email:</strong> <a href="mailto:bionicbud380@gmail.com">bionicbud380@gmail.com</a></p>
@@ -113,10 +114,10 @@
           <p><strong>GitHub:</strong> <a href="https://github.com/bion1cal1vee" target="_blank">github.com/bion1cal1vee</a></p>
         </div>
         <form class="form" onsubmit="event.preventDefault(); this.reset(); alert('Спасибо! Я свяжусь с вами.');">
-          <input type="text" name="name" placeholder="Ваше имя" required>
-          <input type="email" name="email" placeholder="Ваш email" required>
-          <textarea name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
-          <button type="submit" class="btn">Отправить</button>
+          <input type="text" name="name" placeholder="Ваше имя" data-i18n-ph="form_name" required>
+          <input type="email" name="email" placeholder="Ваш email" data-i18n-ph="form_email" required>
+          <textarea name="message" rows="5" placeholder="Ваше сообщение" data-i18n-ph="form_message" required></textarea>
+          <button type="submit" class="btn" data-i18n="form_submit">Отправить</button>
         </form>
       </div>
     </div>
@@ -124,7 +125,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 bionic. Все права защищены.</p>
+      <p>© 2026 bionic. <span data-i18n="footer_rights">Все права защищены.</span></p>
     </div>
   </footer>
 

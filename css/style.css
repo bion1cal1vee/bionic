@@ -466,6 +466,24 @@ body {
   transform: translateY(0);
 }
 
+.lang-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.lang-btn:hover {
+  border-color: var(--accent);
+  background: rgba(109, 141, 255, 0.15);
+}
+
 .to-top {
   position: fixed;
   bottom: 24px;

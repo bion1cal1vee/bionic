@@ -11,40 +11,134 @@ const observer = new IntersectionObserver((entries) => {
 
 revealElements.forEach((el) => observer.observe(el));
 
-const typedText = document.getElementById('typed-text');
-const phrases = [
-  'Создаю современные сайты и Telegram-ботов.',
-  'Люблю Python, HTML и дизайн.',
-];
+const translations = {
+  ru: {
+    nav_about: 'Обо мне',
+    nav_works: 'Работы',
+    nav_contacts: 'Контакты',
+    online_word: 'онлайн',
+    hero_badge: '✦ открыт к проектам',
+    hero_greeting: 'привет, я',
+    hero_btn: 'Связаться со мной',
+    about_title: 'Обо мне',
+    about_text: 'Я начинающий web-разработчик и дизайнер bionic. Работаю с Python, HTML, C/C++ и другими языками.',
+    works_title: 'Мои работы',
+    card1_title: 'Проект 1',
+    card1_text: 'Мои Telegram-боты.',
+    card2_title: 'Проект 2',
+    card2_text: 'Краткое описание проекта. Ссылка на работу добавляется внизу.',
+    card3_title: 'Проект 3',
+    card3_text: 'Краткое описание проекта. Ссылка на работу добавляется внизу.',
+    view: 'Смотреть →',
+    contacts_title: 'Связаться со мной',
+    contacts_sub: 'Напишите мне — отвечаю быстро.',
+    form_name: 'Ваше имя',
+    form_email: 'Ваш email',
+    form_message: 'Ваше сообщение',
+    form_submit: 'Отправить',
+    footer_rights: 'Все права защищены.',
+    title: 'bionic — портфолио'
+  },
+  en: {
+    nav_about: 'About',
+    nav_works: 'Works',
+    nav_contacts: 'Contact',
+    online_word: 'online',
+    hero_badge: '✦ open to projects',
+    hero_greeting: "hi, I'm",
+    hero_btn: 'Contact me',
+    about_title: 'About me',
+    about_text: "I'm a beginner web developer and designer bionic. I work with Python, HTML, C/C++ and other languages.",
+    works_title: 'My works',
+    card1_title: 'Project 1',
+    card1_text: 'My Telegram bots.',
+    card2_title: 'Project 2',
+    card2_text: 'Short project description. Link is added below.',
+    card3_title: 'Project 3',
+    card3_text: 'Short project description. Link is added below.',
+    view: 'View →',
+    contacts_title: 'Contact me',
+    contacts_sub: 'Write me — I reply fast.',
+    form_name: 'Your name',
+    form_email: 'Your email',
+    form_message: 'Your message',
+    form_submit: 'Send',
+    footer_rights: 'All rights reserved.',
+    title: 'bionic — portfolio'
+  }
+};
 
+const langBtn = document.getElementById('lang-btn');
+let currentLang = localStorage.getItem('bionic-lang') || 'ru';
+
+const typedText = document.getElementById('typed-text');
+const phraseSets = {
+  ru: ['Создаю современные сайты и Telegram-ботов.', 'Люблю Python, HTML и дизайн.'],
+  en: ['I build modern websites and Telegram bots.', 'I love Python, HTML and design.']
+};
 let phraseIndex = 0;
 let charIndex = 0;
 let deleting = false;
+let typeToken = 0;
 
-function type() {
-  const current = phrases[phraseIndex];
+function startTyping() {
+  typeToken++;
+  phraseIndex = 0;
+  charIndex = 0;
+  deleting = false;
+  const token = typeToken;
+  const phrases = phraseSets[currentLang];
 
-  if (!deleting) {
-    typedText.textContent = current.slice(0, ++charIndex);
-    if (charIndex === current.length) {
-      deleting = true;
-      setTimeout(type, 2200);
-      return;
+  function type() {
+    if (token !== typeToken) return;
+    const current = phrases[phraseIndex];
+
+    if (!deleting) {
+      typedText.textContent = current.slice(0, ++charIndex);
+      if (charIndex === current.length) {
+        deleting = true;
+        setTimeout(type, 2200);
+        return;
+      }
+      setTimeout(type, 60);
+    } else {
+      typedText.textContent = current.slice(0, --charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(type, 400);
+        return;
+      }
+      setTimeout(type, 30);
     }
-    setTimeout(type, 60);
-  } else {
-    typedText.textContent = current.slice(0, --charIndex);
-    if (charIndex === 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      setTimeout(type, 400);
-      return;
-    }
-    setTimeout(type, 30);
   }
+
+  type();
 }
 
-type();
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('bionic-lang', lang);
+  const t = translations[lang];
+
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    el.textContent = t[el.dataset.i18n] || el.textContent;
+  });
+
+  document.querySelectorAll('[data-i18n-ph]').forEach((el) => {
+    el.placeholder = t[el.dataset.i18nPh] || el.placeholder;
+  });
+
+  document.title = t.title;
+  langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+  startTyping();
+}
+
+langBtn.addEventListener('click', () => {
+  applyLang(currentLang === 'ru' ? 'en' : 'ru');
+});
+
+applyLang(currentLang);
 
 const onlineEl = document.getElementById('online-count');
 
@@ -73,6 +167,10 @@ if (typeof firebase !== 'undefined') {
   const visitsEl = document.getElementById('visits-count');
   const visitsWordEl = document.getElementById('visits-word');
   const countedKey = 'bionic-visit-counted';
+  const visitForms = {
+    ru: ['визит', 'визита', 'визитов'],
+    en: ['visit', 'visits', 'visits']
+  };
 
   function plural(n, forms) {
     const abs = Math.abs(n) % 100;
@@ -98,8 +196,8 @@ if (typeof firebase !== 'undefined') {
 
       visitsRef.on('value', (snap) => {
         const v = snap.val() || 0;
-        visitsEl.textContent = v.toLocaleString('ru-RU');
-        visitsWordEl.textContent = plural(v, ['визит', 'визита', 'визитов']);
+        visitsEl.textContent = v.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US');
+        visitsWordEl.textContent = plural(v, visitForms[currentLang]);
       });
     } catch (e) {
       visitsEl.textContent = '—';
