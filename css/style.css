@@ -525,16 +525,135 @@ body {
   transform: translateY(-3px);
 }
 
+.online--menu {
+  display: none;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
-  .contacts {
-    grid-template-columns: 1fr;
+.burger {
+    display: flex;
+  }
+
+  .header__left {
+    gap: 12px;
+  }
+
+  .online--header {
+    display: none;
+  }
+
+  .online--menu {
+    display: flex;
+    margin: 14px 24px 4px;
+    align-self: flex-start;
   }
 
   .nav {
-    gap: 18px;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(10, 14, 26, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0 16px;
+    transform: translateY(-16px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s, opacity 0.3s, visibility 0.3s;
   }
 
-  .online {
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav a {
+    padding: 14px 24px;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav a::after {
     display: none;
+  }
+
+  .lang-switch {
+    margin: 14px 24px 4px;
+    align-self: flex-start;
+  }
+
+  .hero {
+    padding: 96px 0 48px;
+    min-height: auto;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section__sub,
+  .section__text {
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contacts {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .card__image {
+    height: 140px;
+  }
+
+  .to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
   }
 }

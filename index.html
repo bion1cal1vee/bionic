@@ -20,18 +20,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
   <header class="header">
     <div class="container header__inner">
       <div class="header__left">
         <a href="#" class="logo">bionic</a>
-        <div class="online" title="Статистика сайта">
+        <div class="online online--header" title="Статистика сайта">
           <span class="online__dot"></span>
           <span class="online__text">
-            <span id="online-count">—</span> <span data-i18n="online_word">онлайн</span> ·
-            <span id="visits-count">—</span> <span id="visits-word">визитов</span>
+            <span class="online-count">—</span> <span data-i18n="online_word">онлайн</span> ·
+            <span class="visits-count">—</span> <span class="visits-word">визитов</span>
           </span>
         </div>
       </div>
@@ -43,7 +43,19 @@
           <button class="lang-option" type="button" data-lang="ru">RU</button>
           <button class="lang-option" type="button" data-lang="en">EN</button>
         </div>
+        <div class="online online--menu" title="Статистика сайта">
+          <span class="online__dot"></span>
+          <span class="online__text">
+            <span class="online-count">—</span> <span data-i18n="online_word">онлайн</span> ·
+            <span class="visits-count">—</span> <span class="visits-word">визитов</span>
+          </span>
+        </div>
       </nav>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -137,6 +149,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
-  <script src="js/script.js?v=3"></script>
+  <script src="js/script.js?v=5"></script>
 </body>
 </html>

@@ -145,7 +145,32 @@ langOptions.forEach((btn) => {
 
 applyLang(currentLang);
 
-const onlineEl = document.getElementById('online-count');
+const burger = document.getElementById('burger');
+const nav = document.querySelector('.nav');
+
+burger.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+});
+
+nav.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (nav.classList.contains('open') && !nav.contains(e.target) && !burger.contains(e.target)) {
+    nav.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+});
+
+const onlineEls = document.querySelectorAll('.online-count');
 
 if (typeof firebase !== 'undefined') {
   firebase.initializeApp({
@@ -169,8 +194,8 @@ if (typeof firebase !== 'undefined') {
 
   let realOnline = null;
 
-  const visitsEl = document.getElementById('visits-count');
-  const visitsWordEl = document.getElementById('visits-word');
+  const visitsEls = document.querySelectorAll('.visits-count');
+  const visitsWordEls = document.querySelectorAll('.visits-word');
   const countedKey = 'bionic-visit-counted';
   const visitForms = {
     ru: ['визит', 'визита', 'визитов'],
@@ -179,7 +204,10 @@ if (typeof firebase !== 'undefined') {
 
   renderVisitsWord = function () {
     if (lastVisits === null) return;
-    visitsWordEl.textContent = plural(lastVisits, visitForms[currentLang]);
+    const word = plural(lastVisits, visitForms[currentLang]);
+    visitsWordEls.forEach((el) => {
+      el.textContent = word;
+    });
   };
 
   function plural(n, forms) {
@@ -207,7 +235,10 @@ if (typeof firebase !== 'undefined') {
       visitsRef.on('value', (snap) => {
         const v = snap.val() || 0;
         lastVisits = v;
-        visitsEl.textContent = v.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US');
+        const text = v.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US');
+        visitsEls.forEach((el) => {
+          el.textContent = text;
+        });
         renderVisitsWord();
       });
     } catch (e) {
@@ -242,7 +273,9 @@ if (typeof firebase !== 'undefined') {
     stale.forEach((ref) => ref.remove());
 
     realOnline = count;
-    onlineEl.textContent = count;
+    onlineEls.forEach((el) => {
+      el.textContent = count;
+    });
   }
 
   let online = Math.floor(Math.random() * 8) + 3;
@@ -251,7 +284,9 @@ if (typeof firebase !== 'undefined') {
     if (realOnline !== null) return;
     const delta = Math.floor(Math.random() * 3) - 1;
     online = Math.max(2, Math.min(18, online + delta));
-    onlineEl.textContent = online;
+    onlineEls.forEach((el) => {
+      el.textContent = online;
+    });
     setTimeout(updateOnline, 4000);
   }
 
