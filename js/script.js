@@ -46,20 +46,6 @@ function type() {
 
 type();
 
-const visitsEl = document.getElementById('visits-count');
-
-async function loadVisits() {
-  try {
-    const res = await fetch('https://api.countapi.xyz/hit/bion1cal1vee-bionic/visits');
-    const data = await res.json();
-    visitsEl.textContent = data.value.toLocaleString('ru-RU');
-  } catch (e) {
-    visitsEl.textContent = '—';
-  }
-}
-
-loadVisits();
-
 const onlineEl = document.getElementById('online-count');
 
 if (typeof firebase !== 'undefined') {
@@ -83,6 +69,24 @@ if (typeof firebase !== 'undefined') {
   const presenceRef = db.ref('online/' + visitorId);
 
   let realOnline = null;
+
+  const visitsEl = document.getElementById('visits-count');
+  const countedKey = 'bionic-visit-counted';
+
+  try {
+    const visitsRef = db.ref('visits');
+
+    if (!localStorage.getItem(countedKey)) {
+      visitsRef.set(firebase.database.ServerValue.increment(1));
+      localStorage.setItem(countedKey, '1');
+    }
+
+    visitsRef.on('value', (snap) => {
+      visitsEl.textContent = (snap.val() || 0).toLocaleString('ru-RU');
+    });
+  } catch (e) {
+    visitsEl.textContent = '—';
+  }
 
   async function initOnlineCounter() {
     try {
