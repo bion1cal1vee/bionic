@@ -87,9 +87,9 @@ if (typeof firebase !== 'undefined') {
   async function initOnlineCounter() {
     try {
       await firebase.auth().signInAnonymously();
-      console.log('Anonymous auth OK');
+      console.log('AUTH_OK');
     } catch (e) {
-      console.error('Auth error:', e);
+      console.error('AUTH_ERROR', e.code, e.message);
     }
 
     db.ref('online').on('value', cleanup);
