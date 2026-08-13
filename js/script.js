@@ -346,6 +346,7 @@ for (let i = 0; i < particleCount; i++) {
   const dot = document.createElement('span');
   dot.className = 'particle';
   dot.style.left = Math.random() * 100 + '%';
+  dot.style.top = Math.random() * 100 + '%';
   dot.style.animationDelay = -Math.random() * 6 + 's';
   dot.style.animationDuration = 5 + Math.random() * 6 + 's';
   hero.appendChild(dot);
