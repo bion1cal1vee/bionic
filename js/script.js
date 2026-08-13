@@ -18,7 +18,7 @@ const translations = {
     nav_contacts: 'Контакты',
     online_word: 'онлайн',
     hero_badge: '✦ открыт к проектам',
-    hero_role: '— веб-разработчик и дизайнер',
+    hero_tagline: 'боты · сайты · дизайн',
     hero_btn: 'Связаться со мной',
     about_title: 'Обо мне',
     about_text: 'Я начинающий web-разработчик и дизайнер bionic. Работаю с Python, HTML, C/C++ и другими языками.',
@@ -46,7 +46,7 @@ const translations = {
     nav_contacts: 'Contact',
     online_word: 'online',
     hero_badge: '✦ open to projects',
-    hero_role: '— web developer & designer',
+    hero_tagline: 'bots · websites · design',
     hero_btn: 'Contact me',
     about_title: 'About me',
     about_text: "I'm a beginner web developer and designer bionic. I work with Python, HTML, C/C++ and other languages.",
@@ -346,7 +346,7 @@ for (let i = 0; i < particleCount; i++) {
   const dot = document.createElement('span');
   dot.className = 'particle';
   dot.style.left = Math.random() * 100 + '%';
-  dot.style.animationDelay = Math.random() * 6 + 's';
+  dot.style.animationDelay = -Math.random() * 6 + 's';
   dot.style.animationDuration = 5 + Math.random() * 6 + 's';
   hero.appendChild(dot);
 }
