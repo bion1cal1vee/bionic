@@ -70,6 +70,8 @@ const translations = {
 
 const langOptions = document.querySelectorAll('.lang-option');
 let currentLang = localStorage.getItem('bionic-lang') || 'ru';
+let lastVisits = null;
+let renderVisitsWord = function () {};
 
 const typedText = document.getElementById('typed-text');
 const phraseSets = {
@@ -134,6 +136,7 @@ function applyLang(lang) {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
   startTyping();
+  renderVisitsWord();
 }
 
 langOptions.forEach((btn) => {
@@ -174,6 +177,11 @@ if (typeof firebase !== 'undefined') {
     en: ['visit', 'visits', 'visits']
   };
 
+  renderVisitsWord = function () {
+    if (lastVisits === null) return;
+    visitsWordEl.textContent = plural(lastVisits, visitForms[currentLang]);
+  };
+
   function plural(n, forms) {
     const abs = Math.abs(n) % 100;
     const d = abs % 10;
@@ -198,8 +206,9 @@ if (typeof firebase !== 'undefined') {
 
       visitsRef.on('value', (snap) => {
         const v = snap.val() || 0;
+        lastVisits = v;
         visitsEl.textContent = v.toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US');
-        visitsWordEl.textContent = plural(v, visitForms[currentLang]);
+        renderVisitsWord();
       });
     } catch (e) {
       visitsEl.textContent = '—';
