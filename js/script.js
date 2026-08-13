@@ -36,6 +36,7 @@ const translations = {
     form_email: 'Ваш email',
     form_message: 'Ваше сообщение',
     form_submit: 'Отправить',
+    copied: '✓ скопировано',
     footer_rights: 'Все права защищены.',
     title: 'bionic — портфолио'
   },
@@ -63,6 +64,7 @@ const translations = {
     form_email: 'Your email',
     form_message: 'Your message',
     form_submit: 'Send',
+    copied: '✓ copied',
     footer_rights: 'All rights reserved.',
     title: 'bionic — portfolio'
   }
@@ -168,6 +170,40 @@ document.addEventListener('click', (e) => {
     burger.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
   }
+});
+
+const copyMail = document.getElementById('copy-mail');
+const copyTip = document.getElementById('copy-tip');
+
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text);
+  }
+  return new Promise((resolve, reject) => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+      resolve();
+    } catch (err) {
+      reject(err);
+    }
+    ta.remove();
+  });
+}
+
+copyMail.addEventListener('click', (e) => {
+  e.preventDefault();
+  copyText(copyMail.textContent.trim()).then(() => {
+    copyTip.textContent = translations[currentLang].copied;
+    copyTip.classList.add('show');
+    setTimeout(() => copyTip.classList.remove('show'), 2000);
+  });
 });
 
 const onlineEls = document.querySelectorAll('.online-count');
