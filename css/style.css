@@ -466,22 +466,33 @@ body {
   transform: translateY(0);
 }
 
-.lang-btn {
-  background: rgba(255, 255, 255, 0.06);
+.lang-switch {
+  display: inline-flex;
   border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 6px 14px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.lang-btn:hover {
-  border-color: var(--accent);
-  background: rgba(109, 141, 255, 0.15);
+.lang-option {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-option.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+}
+
+.lang-option:not(.active):hover {
+  color: var(--text);
 }
 
 .to-top {

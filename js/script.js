@@ -68,7 +68,7 @@ const translations = {
   }
 };
 
-const langBtn = document.getElementById('lang-btn');
+const langOptions = document.querySelectorAll('.lang-option');
 let currentLang = localStorage.getItem('bionic-lang') || 'ru';
 
 const typedText = document.getElementById('typed-text');
@@ -130,12 +130,14 @@ function applyLang(lang) {
   });
 
   document.title = t.title;
-  langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+  langOptions.forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
   startTyping();
 }
 
-langBtn.addEventListener('click', () => {
-  applyLang(currentLang === 'ru' ? 'en' : 'ru');
+langOptions.forEach((btn) => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
 });
 
 applyLang(currentLang);
