@@ -151,6 +151,18 @@ langOptions.forEach((btn) => {
 
 applyLang(currentLang);
 
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'light' ? '' : 'light';
+  if (next) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+  localStorage.setItem('bionic-theme', next === 'light' ? 'light' : 'dark');
+});
+
 const burger = document.getElementById('burger');
 const nav = document.querySelector('.nav');
 
