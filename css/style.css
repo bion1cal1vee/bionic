@@ -192,6 +192,11 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.hero__title .hero__role {
+  background: none;
+  -webkit-text-fill-color: var(--text);
+}
+
 .hero__subtitle {
   color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.25rem);
