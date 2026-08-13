@@ -151,17 +151,26 @@ langOptions.forEach((btn) => {
 
 applyLang(currentLang);
 
-const themeToggle = document.getElementById('theme-toggle');
+const themeOptions = document.querySelectorAll('.theme-option');
+const savedTheme = localStorage.getItem('bionic-theme') || 'dark';
 
-themeToggle.addEventListener('click', () => {
-  const next = document.documentElement.getAttribute('data-theme') === 'light' ? '' : 'light';
-  if (next) {
+function applyTheme(theme) {
+  if (theme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
   } else {
     document.documentElement.removeAttribute('data-theme');
   }
-  localStorage.setItem('bionic-theme', next === 'light' ? 'light' : 'dark');
+  themeOptions.forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.themeOpt === theme);
+  });
+  localStorage.setItem('bionic-theme', theme);
+}
+
+themeOptions.forEach((btn) => {
+  btn.addEventListener('click', () => applyTheme(btn.dataset.themeOpt));
 });
+
+applyTheme(savedTheme);
 
 const burger = document.getElementById('burger');
 const nav = document.querySelector('.nav');
