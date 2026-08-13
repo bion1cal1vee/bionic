@@ -326,16 +326,18 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .card {
   position: relative;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: 24px;
+  padding: 24px;
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s, box-shadow 0.4s;
 }
@@ -344,7 +346,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 20px;
+  border-radius: 24px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
   opacity: 0;
   transition: opacity 0.4s;
@@ -366,9 +368,9 @@ body {
 }
 
 .card__image {
-  height: 170px;
-  border-radius: 14px;
-  margin-bottom: 18px;
+  height: 190px;
+  border-radius: 16px;
+  margin-bottom: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -380,8 +382,8 @@ body {
 }
 
 .card__image--icon svg {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   position: relative;
   z-index: 1;
   animation: float-icon 3s ease-in-out infinite;
@@ -401,7 +403,7 @@ body {
 
 .card__title {
   margin-bottom: 8px;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
 
 .card__text {
