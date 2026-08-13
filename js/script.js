@@ -98,7 +98,7 @@ if (typeof firebase !== 'undefined') {
 
     db.ref('online').on('value', cleanup);
     heartbeat();
-    setInterval(heartbeat, 10000);
+    setInterval(heartbeat, 3000);
   }
 
   initOnlineCounter();
@@ -114,7 +114,7 @@ if (typeof firebase !== 'undefined') {
 
     snap.forEach((child) => {
       const ts = child.val();
-      if (typeof ts === 'number' && now - ts <= 30000) {
+      if (typeof ts === 'number' && now - ts <= 8000) {
         count++;
       } else {
         stale.push(child.ref);
