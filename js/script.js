@@ -73,27 +73,24 @@ if (typeof firebase !== 'undefined') {
   const visitsEl = document.getElementById('visits-count');
   const countedKey = 'bionic-visit-counted';
 
-  try {
-    const visitsRef = db.ref('visits');
-
-    if (!localStorage.getItem(countedKey)) {
-      visitsRef.set(firebase.database.ServerValue.increment(1));
-      localStorage.setItem(countedKey, '1');
-    }
-
-    visitsRef.on('value', (snap) => {
-      visitsEl.textContent = (snap.val() || 0).toLocaleString('ru-RU');
-    });
-  } catch (e) {
-    visitsEl.textContent = '—';
-  }
-
   async function initOnlineCounter() {
     try {
       await firebase.auth().signInAnonymously();
-      console.log('AUTH_OK');
+    } catch (e) {}
+
+    try {
+      const visitsRef = db.ref('visits');
+
+      if (!localStorage.getItem(countedKey)) {
+        visitsRef.set(firebase.database.ServerValue.increment(1));
+        localStorage.setItem(countedKey, '1');
+      }
+
+      visitsRef.on('value', (snap) => {
+        visitsEl.textContent = (snap.val() || 0).toLocaleString('ru-RU');
+      });
     } catch (e) {
-      console.error('AUTH_ERROR', e.code, e.message);
+      visitsEl.textContent = '—';
     }
 
     db.ref('online').on('value', cleanup);
