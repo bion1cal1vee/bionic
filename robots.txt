@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bion1cal1vee.github.io/bionic/sitemap.xml
