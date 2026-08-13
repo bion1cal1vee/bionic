@@ -623,8 +623,8 @@ body {
   }
 
   .hero {
-    padding: 96px 0 48px;
-    min-height: auto;
+    min-height: 100vh;
+    padding: 96px 0 72px;
   }
 
   .scroll-hint {
